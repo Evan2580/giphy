@@ -9,22 +9,26 @@ $.ajax({
   method: "GET"
 }).then(function(response) {
   console.log(response);
-  var len = response.data
+  var len = response.data.length;
       for(var i = 0; i < len; i++) {
-      var ratedDiv = $("<div id='rated'>");
+      //GET rate
       var pictureRated = response.data[i].rating;
-      console.log(pictureRated);
-      var pOne = $("#rated").html("Rated: " + pictureRated);
-      console.log(pOne)
-      ratedDiv.append(pOne);
-
+      console.log("pictureRated:" + pictureRated);
+      //GET image url
       var imgURL = response.data[i].images.fixed_height.url;
+
+      //create div for rate
+      var ratedDiv = $("<div id='rated'>");
+      //insert rate information into the div
+      ratedDiv.html("Rated: " + pictureRated);
+
       // Creating an element to hold the image
       var image = $("<img>").attr("src", imgURL);
 
-      $("#add-giphys").append(image);
+      //append
+      $("#add-giphys").append(ratedDiv).append(image);
 
-      }
+    }
 });
 }
 function buttons() {
@@ -42,12 +46,13 @@ function buttons() {
     btn.html(searchTerm[i]);
 
     $("#buttons").append(btn);
+
   }
 }
 
 buttons();
 
-$("#add-giphys").on("click", function(event) {
+$("#add-gifs").on("click", function(event) {
   event.preventDefault();
 
   var gifs = $("#giphy-input").val().trim();
@@ -57,4 +62,4 @@ $("#add-giphys").on("click", function(event) {
 
   buttons();
 });
-$(document).on("click", ".giphy-btn", giphyButtons);
+$("#buttons").on("click", ".giphy-btn", giphyButtons);
