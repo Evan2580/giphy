@@ -1,1 +1,23 @@
+#add-gifs{
+  border-radius: 12px;
+  background-color: blue;
+}
 
+.giphy-btn{
+  border-radius: 8px;
+  background-color: greenyellow;
+}
+
+body{
+  background-image: url("../images/lion.jpg");
+  max-width: auto;
+  height: auto;
+}
+
+.rated{
+  color: white;
+}
+
+.gifContainer{
+  display: inline-block; 
+}
