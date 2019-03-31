@@ -1,4 +1,4 @@
-var searchTerm = ["funny cat", "dogs", "snake"];
+var searchTerm = ["funny cat", "dogs", "snake", "surfer", "kelly slater"];
 
 function giphyButtons(){
   var giphys = $(this).attr("data-name");
@@ -10,7 +10,7 @@ $.ajax({
 }).then(function(response) {
   console.log(response);
   var len = response.data.length;
-
+  // ("#add-giphys").empty();
       for(var i = 0; i < len; i++) {
       //GET rate
       var pictureRated = response.data[i].rating;
